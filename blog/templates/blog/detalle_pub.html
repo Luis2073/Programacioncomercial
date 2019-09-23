@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+  <div class="post">
+    <div class="date">
+        <p>published: {{p.fecha_publicacion}}</p>
+      </div>
+      {% if user.is_authenticated %}
+        <a class="btn btn-default" href="{% url 'editar_pub' pk=p.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+      {% endif %}
+        <h1><a> {{p.titulo}}</a></h1>
+        <p>{{p.texto|linebreaksbr}}</p>
+    </div>
+
+
+{% endblock %}
